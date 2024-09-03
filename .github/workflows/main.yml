@@ -31,4 +31,4 @@ jobs:
         run: |
           jq --raw-output \
           '.runs[].results[].locations[].physicalLocation | "\(.artifactLocation.uri):\(.region.startLine)"' \
-          ".github/workflows/results.sarif"
+          " /home/runner/work/tester/tester/results.sarif"
