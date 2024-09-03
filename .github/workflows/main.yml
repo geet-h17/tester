@@ -25,8 +25,7 @@ jobs:
 
     - name: Run GitLeaks scan
       run: |
-        gitleaks detect --source . --config=twilio-gitleaks.toml --report=gitleaks-report.json
-
+        gitleaks detect --source . --config=twilio-gitleaks.toml --report-path=gitleaks-report.json --report-format=json
 
     - name: Upload GitLeaks report
       if: always()
