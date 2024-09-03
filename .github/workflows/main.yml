@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
       - run: wget https://raw.githubusercontent.com/geet-h17/tester/main/twilio-gitleaks.toml
       - uses: gitleaks/gitleaks-action@demo
         env:
