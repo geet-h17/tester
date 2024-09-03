@@ -1,6 +1,6 @@
 def send_sms():
     # Twilio credentials
-    account_sid = "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    account_sid = "SK1234567890abcdefABCDEF12345678"
     auth_token = "SK1234567890abcdef1234567890abcdef"
 
     # Twilio phone numbers
