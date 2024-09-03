@@ -24,8 +24,3 @@ jobs:
           name: gitleaks-results.sarif
       - name: Show downloaded files
         run: ls -R
-      - name: List secret locations
-        run: |
-          jq --raw-output \
-          '.runs[].results[].locations[].physicalLocation | "\(.artifactLocation.uri):\(.region.startLine)"' \
-          "gitleaks-results.sarif"
