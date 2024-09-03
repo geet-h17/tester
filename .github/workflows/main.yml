@@ -12,7 +12,6 @@ jobs:
       - uses: gitleaks/gitleaks-action@demo
         env:
           GITLEAKS_CONFIG: twilio-gitleaks.toml
-
   process_report:
     name: Process Report
     if: always()
@@ -23,12 +22,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: gitleaks-results.sarif
-
       - name: Show downloaded files
         run: ls -R
-
       - name: List secret locations
         run: |
+          jq --raw-output \
+          '.runs[].results[].locations[].physicalLocation | "\(.artifactLocation.uri):\(.region.startLine)"' \
+          "gitleaks-results.sarif"
           jq --raw-output \
           '.runs[].results[].locations[].physicalLocation | "\(.artifactLocation.uri):\(.region.startLine)"' \
           " /home/runner/work/tester/tester/results.sarif"
